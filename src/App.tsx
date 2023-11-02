@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Login } from './components/Login'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import KakaoLoginRedirect from './components/KakaoLoginRedirect'
+import SocialLoginRedirect from './components/SocialLoginRedirect'
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login/>}></Route>
-        <Route path="/oauth/kakao" element={<KakaoLoginRedirect />}></Route>
+        <Route path="/oauth/:provider" element={<SocialLoginRedirect />}></Route>
       </Routes>
     </BrowserRouter>
   )

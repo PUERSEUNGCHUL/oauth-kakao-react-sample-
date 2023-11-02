@@ -17,7 +17,7 @@ export const Login = () => {
 
     const accessToken = localStorage.getItem("accessToken");
 
-    const [isLogin, setLogin] = useState(accessToken != null);
+    const [isLogin, setLogin] = useState(accessToken != null && accessToken != '');
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -70,8 +70,19 @@ export const Login = () => {
 
     }
 
+    const naverLogin = () => {
+        const client_id = 'v6RxNiiwBgSNjKpfoA_Z';
+        const rest_api_key = 'Elhh_f_aGy';
+        const redirect_uri = 'http://localhost:5173/oauth/naver';
+
+        const naverURL = `	https://nid.naver.com/oauth2.0/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code`;
+
+        window.location.href= naverURL;
+    }
+
     const Logout = () => {
 
+        localStorage.setItem("accessToken", "");
         setLogin(false);
     }
 
@@ -92,6 +103,10 @@ export const Login = () => {
                 <div className='login-button kakao' onClick={kakaoLogin}>
 
                     <p>카카오톡 로그인</p>
+                </div>
+                <div className='login-button naver' onClick={naverLogin}>
+
+                    <p>네이버 로그인</p>
                 </div>
 
             </div>
