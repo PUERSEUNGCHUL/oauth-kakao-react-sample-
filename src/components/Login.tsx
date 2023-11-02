@@ -8,15 +8,14 @@ export const Login = () => {
     const kakaoLogin = () => {
         
         const rest_api_key = '5d0054eea17533b46e366d23a750ddc6';
-        const redirect_uri = 'http://localhost:5173/oauth';
+        const redirect_uri = 'http://localhost:8080/oauth2/authorization/kakao';
 
         const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`;
 
-        window.location.href= kakaoURL;
+        window.location.href= "http://localhost:8080/members/login/social/kakao";
 
-        const code = new URL(window.location.href).searchParams.get("code");
+        //const code = new URL(window.location.href).searchParams.get("code");
 
-        alert(code);
     }
 
   return (
