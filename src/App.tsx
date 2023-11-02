@@ -7,13 +7,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import KakaoLoginRedirect from './components/KakaoLoginRedirect'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login/>}></Route>
-        <Route path="/oauth" element={<KakaoLoginRedirect />}></Route>
+        <Route path="/oauth/kakao" element={<KakaoLoginRedirect />}></Route>
       </Routes>
     </BrowserRouter>
   )
